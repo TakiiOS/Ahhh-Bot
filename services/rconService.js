@@ -435,12 +435,12 @@ async function startRCONService(client, db) {
                     if (joinedPlayers.length > 0 || leftPlayers.length > 0) {
 
                         for (const newPlayer of joinedPlayers) {
-                            await logToGameLogChannel(client, guildId, serverName, "Player Joined", `${newPlayer.name} has Joined the Server!`);
+                            await logToGameLogChannel(client, guildId, serverName, "Join Player", `${newPlayer.name} has join (Steam ID: ${newPlayer.steamid})`);
                             await broadcastMessage(host, RCONPort, password, `${newPlayer.name} has Joined the Server!`);
                         }
 
                         for (const leftPlayer of leftPlayers) {
-                            await logToGameLogChannel(client, guildId, serverName, "Player Left", `${leftPlayer.name} has Left the Server!`);
+                            await logToGameLogChannel(client, guildId, serverName, "Left Player", `${newPlayer.name} has left (Steam ID: ${newPlayer.steamid})`);
                             await broadcastMessage(host, RCONPort, password, `${leftPlayer.name} has Left the Server!`);
                         }
                     }else {
